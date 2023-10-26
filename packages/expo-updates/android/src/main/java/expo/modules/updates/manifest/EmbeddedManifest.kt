@@ -16,7 +16,7 @@ object EmbeddedManifest {
 
   private var sEmbeddedManifest: UpdateManifest? = null
 
-  fun get(context: Context, configuration: UpdatesConfiguration): UpdateManifest? {
+  fun get(context: Context): UpdateManifest? {
     if (!configuration.hasEmbeddedUpdate) {
       return null
     }

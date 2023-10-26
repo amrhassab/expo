@@ -22,7 +22,6 @@ import java.io.File
  */
 class NoDatabaseLauncher @JvmOverloads constructor(
   context: Context,
-  configuration: UpdatesConfiguration,
   fatalException: Exception? = null
 ) : Launcher {
   override var bundleAssetName: String? = null

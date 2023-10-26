@@ -242,6 +242,7 @@ object UpdatesUtils {
   }
 
   fun getRuntimeVersion(updatesConfiguration: UpdatesConfiguration): String {
+    // TODO(wschurman): remove "1" as default since we shouldn't have a invalid configuration any more
     val runtimeVersion = updatesConfiguration.runtimeVersion
     val sdkVersion = updatesConfiguration.sdkVersion
     return if (runtimeVersion != null && runtimeVersion.isNotEmpty()) {

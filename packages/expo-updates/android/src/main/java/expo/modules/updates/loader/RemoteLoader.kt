@@ -25,7 +25,7 @@ class RemoteLoader internal constructor(
   configuration: UpdatesConfiguration,
   database: UpdatesDatabase,
   private val mFileDownloader: FileDownloader,
-  updatesDirectory: File?,
+  updatesDirectory: File,
   private val launchedUpdate: UpdateEntity?,
   private val loaderFiles: LoaderFiles
 ) : Loader(context, configuration, database, updatesDirectory, loaderFiles) {
@@ -34,7 +34,7 @@ class RemoteLoader internal constructor(
     configuration: UpdatesConfiguration,
     database: UpdatesDatabase,
     fileDownloader: FileDownloader,
-    updatesDirectory: File?,
+    updatesDirectory: File,
     launchedUpdate: UpdateEntity?
   ) : this(context, configuration, database, fileDownloader, updatesDirectory, launchedUpdate, LoaderFiles())
 

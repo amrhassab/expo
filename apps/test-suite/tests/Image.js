@@ -20,6 +20,21 @@ export async function test(t, { setPortalChild, cleanupPortal }) {
       await cleanupPortal();
     });
 
+    t.fdescribe('ExpoImage.load', () => {
+      t.it('loads image', async () => {
+        console.log(Image, Image.load);
+        const image = await Image.load(REMOTE_SOURCE);
+
+        t.expect(image).toBeDefined();
+        t.expect(image instanceof Image.Image).toBe(true);
+        t.expect(typeof image.width).toBe('number');
+        t.expect(typeof image.height).toBe('number');
+        t.expect(image.isAnimated).toBe(false);
+
+        console.log(image, image.width, image.height, image.isAnimated);
+      });
+    });
+
     t.describe('onLoadStart', () => {
       t.it('emits an event when the image starts to load (will load successfully)', async () => {
         await mountAndWaitFor(

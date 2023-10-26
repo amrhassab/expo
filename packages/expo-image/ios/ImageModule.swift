@@ -138,6 +138,23 @@ public final class ImageModule: Module {
         }
       }
     }
+
+    AsyncFunction("load") { (source: ImageSource) -> Image? in
+      if let image = await ImageLoader.shared.load(source) {
+        return Image(image)
+      }
+      return nil
+    }
+
+    Class(Image.self) {
+      Property("width") { image in
+        return Double(image.pointer.size.width)
+      }
+      Property("height") { image in
+        return Double(image.pointer.size.height)
+      }
+      Property("isAnimated", \.pointer.sd_isAnimated)
+    }
   }
 
   static func registerCoders() {
